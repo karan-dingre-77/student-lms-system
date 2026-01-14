@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Dashboard</title>
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/css/admin-dashboard.css}">
+</head>
+
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<div class="navbar">
+    <div class="logo">ADMIN PANEL</div>
+	<a class="logo"  href="/index.html">Go to Wellcome page</a>
+    <div class="admin-name">
+        Welcome, <span th:text="${admin}"></span>
+    </div>
+</div>
+
+<!-- ===== DASHBOARD ===== -->
+<div class="dashboard">
+
+    <h1 class="title">Admin Operations</h1>
+
+    <div class="card-grid">
+
+        <form th:action="@{/findstudent}" method="get">
+            <button class="card red" type="submit">
+                <h2>Find Student</h2>
+                <p>Search student details</p>
+            </button>
+        </form>
+
+        <form th:action="@{/viewallstudents}" method="get">
+            <button class="card dark" type="submit">
+                <h2>View Students</h2>
+                <p>See all registered students</p>
+            </button>
+        </form>
+
+        <form th:action="@{/addstudent}" method="get">
+            <button class="card red" type="submit">
+                <h2>Add Student</h2>
+                <p>Register a new student</p>
+            </button>
+        </form>
+
+        <form th:action="@{/updatestd}" method="get">
+            <button class="card dark" type="submit">
+                <h2>Update Student</h2>
+                <p>Edit student information</p>
+            </button>
+        </form>
+
+        <form th:action="@{/deletestudent}" method="get">
+            <button class="card danger" type="submit">
+                <h2>Delete Student</h2>
+                <p>Remove student record</p>
+            </button>
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

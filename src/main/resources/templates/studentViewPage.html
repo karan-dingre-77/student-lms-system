@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Student Profile</title>
+	<link rel="stylesheet" href="/css/profile.css">
+</head>
+
+<body>
+
+	<div class="container">
+
+		<!-- Welcome Card -->
+		<div class="glass-card profile-card">
+			<div class="profile-header">
+				<div class="profile-pic">
+					<span th:text="${student.name.substring(0,1)}"></span>
+				</div>
+				<h1 class="page-title">Welcome, <span th:text="${student.name}"></span>!</h1>
+				<p class="welcome-msg">Glad to have you back! Here's your student profile information.</p>
+			</div>
+
+			<!-- Student Details Table -->
+			<div class="table-wrapper">
+				<table class="student-table">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Roll No</th>
+							<th>Email</th>
+							<th>Degree</th>
+							<th>Specialization</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td th:text="${student.name}"></td>
+							<td th:text="${student.rollNo}"></td>
+							<td th:text="${student.email}"></td>
+							<td th:text="${student.standard}"></td>
+							<td th:text="${student.section}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<!-- Action Buttons -->
+
+			<div class="action-buttons">
+				
+					<button type="submit" class="btn-red">Request Profile Update</button>
+				
+				<form action="/index.html" method="get">
+					<button type="submit" class="btn-outline-red">Logout</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

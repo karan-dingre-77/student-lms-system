@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" th:href="@{/css/admlogin.css}">
+</head>
+
+<body>
+
+<div class="login-wrapper">
+
+    <div class="login-card">
+
+        <h1 class="login-title">ADMIN LOGIN</h1>
+
+        <p class="login-sub">Secure Access Panel</p>
+
+        <h3 class="error-msg" th:text="${err}"></h3>
+
+        <form th:action="@{/admin/profile}" th:object="${admin}" method="post">
+
+            <div class="field">
+                <input type="text" th:field="*{username}" required>
+                <label>Username</label>
+            </div>
+
+            <div class="field">
+                <input type="password" th:field="*{password}" required>
+                <label>Password</label>
+            </div>
+
+            <button class="login-btn" type="submit">LOGIN</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="/css/student-registration.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="glass-card">
+            <h1 class="page-title">Student Registration</h1>
+
+            <!-- Error message -->
+            <h3 class="msg-error" th:text="${err}"></h3>
+
+            <form th:action="@{/student/newlogin}" th:object="${register}" method="post" class="form-grid">
+
+                <div class="input-group">
+                    <input type="text" th:field="*{name}" required>
+                    <label>Name</label>
+                </div>
+
+				<div class="input-group auto-filled">
+				    <input type="number" id="rollNo" th:field="*{rollNo}" placeholder=" " readonly>
+				    <label>Roll No</label>
+				</div>
+
+ 
+                <div class="input-group">
+                    <input type="text" th:field="*{standard}" required>
+                    <label>Degree</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" th:field="*{section}" required>
+                    <label>Specialization</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" th:field="*{email}" required>
+                    <label>Email</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" th:field="*{password}" required>
+                    <label>Password</label>
+                </div>
+
+                <div class="input-group mt-20">
+                    <button type="submit" class="btn-red">Register</button>
+                </div>
+
+            </form>
+
+            <p class="login-link">Already have an account? <a href="/student/login">Login here</a></p>
+        </div>
+    </div>
+
+	
+	<script>
+	    document.addEventListener("DOMContentLoaded", function () {
+	        // Random number between 1 and 99
+	        let randomRoll = Math.floor(Math.random() * 99) + 1;
+	        document.getElementById("rollNo").value = randomRoll;
+	    });
+	</script>
+
+</body>
+</html>

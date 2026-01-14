@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Records</title>
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/css/student-table.css}">
+</head>
+
+<body>
+
+<!-- ===== TOP BAR ===== -->
+<div class="top-bar">
+    <h1>Student Records</h1>
+
+    <form th:action="@{/menuFrmViewAllStd}" method="get">
+        <button class="back-btn" type="submit">⬅ Admin Menu</button>
+    </form>
+</div>
+
+<!-- ERROR MESSAGE -->
+<h3 class="error-msg" th:text="${err}"></h3>
+
+<!-- TABLE SECTION -->
+<div class="table-wrapper" th:if="${studentList != null and !studentList.isEmpty()}">
+
+    <table class="student-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Roll No</th>
+                <th>Email</th>
+                <th>Degree</th>
+                <th>Specialization</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="s : ${studentList}">
+                <td th:text="${s.id}"></td>
+                <td th:text="${s.name}"></td>
+                <td th:text="${s.rollNo}"></td>
+                <td th:text="${s.email}"></td>
+                <td th:text="${s.standard}"></td>
+                <td th:text="${s.section}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

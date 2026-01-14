@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* BACKGROUND */
+body {
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #1b0000, #000);
+    color: #fff;
+}
+
+/* NAVBAR */
+.navbar {
+    height: 70px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ff1a1a;
+    letter-spacing: 2px;
+}
+
+.admin-name {
+    font-size: 14px;
+    color: #ddd;
+}
+
+/* DASHBOARD */
+.dashboard {
+    padding: 50px;
+}
+
+.title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #ff1a1a;
+    letter-spacing: 2px;
+}
+
+/* GRID */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 30px;
+}
+
+/* CARD BUTTON */
+.card {
+    border: none;
+    border-radius: 18px;
+    padding: 35px 25px;
+    cursor: pointer;
+    color: white;
+    text-align: left;
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* CARD TEXT */
+.card h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 13px;
+    color: #ddd;
+}
+
+/* CARD TYPES */
+.red {
+    background: linear-gradient(135deg, #ff0000, #7a0000);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+}
+
+.dark {
+    background: linear-gradient(135deg, #111, #222);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+}
+
+.danger {
+    background: linear-gradient(135deg, #5c0000, #300000);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+}
+
+/* HOVER EFFECT */
+.card:hover {
+    transform: translateY(-8px) scale(1.05);
+}
+
+/* GLOW EFFECT */
+.card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, rgba(255,255,255,0.15), transparent);
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.card:hover::after {
+    opacity: 1;
+}

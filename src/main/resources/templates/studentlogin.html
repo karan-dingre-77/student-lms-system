@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student Login</title>
+    <link rel="stylesheet" th:href="@{/css/student-login.css}">
+</head>
+
+<body>
+
+    <div class="login-wrapper">
+
+        <div class="login-card">
+
+            <h1 class="login-title">Student Login</h1>
+            <p class="login-sub">Enter your credentials to continue</p>
+
+            <p class="error-msg" th:if="${err != null}" th:text="${err}"></p>
+
+            <form th:action="@{/student/profile}" th:object="${student}" method="post">
+
+                <div class="field">
+                    <input type="email" th:field="*{email}" required>
+                    <label>Gmail</label>
+                </div>
+
+                <div class="field">
+                    <input type="password" th:field="*{password}" required>
+                    <label>Password</label>
+                </div>
+
+                <button type="submit" class="login-btn">Login</button>
+
+            </form>
+
+            <p class="register-text">
+                Don’t have an account?
+                <a href="/student/register">Register here</a>
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

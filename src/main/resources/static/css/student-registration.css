@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --red: #e50914;
+    --red-glow: rgba(229, 9, 20, 0.6);
+    --glass: rgba(255, 255, 255, 0.08);
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top, #1a1a1a, #000);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CONTAINER */
+.container {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px; /* thoda kam padding */
+}
+
+/* GLASS CARD */
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(18px);
+    border-radius: 22px;
+    padding: 25px 30px; /* height compact kiya */
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(0,0,0,0.8);
+    animation: fadeUp 0.8s ease;
+}
+
+/* CARD ANIMATION */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* TITLE */
+.page-title {
+    text-align: center;
+    font-size: 2.2rem; /* thoda chhota kiya */
+    margin-bottom: 20px; /* gap thoda kam kiya */
+    background: linear-gradient(90deg, var(--red), #ff4d4d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px var(--red-glow);
+}
+
+/* FORM GRID */
+.form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* gap thoda kam kiya */
+}
+
+/* INPUT GROUP */
+.input-group {
+    position: relative;
+}
+
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    color: #aaa;
+    font-size: 0.85rem; /* thoda chhota */
+    pointer-events: none;
+    transform: translateY(-50%);
+    transition: 0.3s;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 16px; /* thoda kam height */
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    background: #1c1c1c;
+    color: white;
+    font-size: 0.95rem; /* thoda chhota */
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+    top: -7px;
+    font-size: 0.75rem;
+    color: var(--red);
+}
+
+.input-group.auto-filled label {
+    top: -7px;
+    font-size: 0.75rem;
+    color: var(--red);
+}
+
+
+/* BUTTON */
+.btn-red {
+    padding: 12px; /* thoda chhota */
+    border-radius: 14px;
+    border: none;
+    background: linear-gradient(135deg, var(--red), #ff3b3b);
+    color: white;
+    font-size: 1rem; /* thoda chhota */
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.4s;
+    box-shadow: 0 0 25px var(--red-glow);
+    width: 50%;
+    margin: auto;
+    display: block;
+}
+
+.btn-red:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 0 35px var(--red-glow);
+}
+
+/* MESSAGES */
+.msg-error {
+    color: #ff4d4d;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* LOGIN LINK */
+.login-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.login-link a {
+    color: var(--red);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link a:hover {
+    text-shadow: 0 0 8px var(--red-glow);
+}
+
+/* RESPONSIVE */
+@media(max-width:500px){
+    .glass-card {
+        padding: 20px;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .input-group input {
+        padding: 10px 14px;
+    }
+}

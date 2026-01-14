@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Update Student</title>
+    <link rel="stylesheet" href="/css/update-student.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <h1>Update Student Data</h1>
+        <form th:action="@{/menuFrmUpdtStd}" method="get">
+            <button type="submit" class="btn-outline-red">Admin Menubar</button>
+        </form>
+    </div>
+	 
+    <!-- MESSAGES -->
+    <div class="messages">
+        <div class="msg-error" th:if="${err != null}" th:text="${err}"></div>
+        <div class="msg-success" th:if="${scs != null}" th:text="${scs}"></div>
+    </div>
+
+    <!-- GET STUDENT FORM -->
+    <div class="glass-card">
+        <h2>Get Student by Roll No</h2>
+        <form th:action="@{/updatestudent/byRollno}" th:object="${student}" method="post" class="update-form">
+            <div class="input-group">
+                <label>Roll No:</label>
+                <input type="number" th:field="*{rollNo}" placeholder="Enter Roll No" required>
+            </div>
+			<br/>
+            <button type="submit" class="btn-red">Get Student</button>
+        </form>
+    </div>
+
+    <!-- STUDENT TABLE -->
+    <div th:if="${student1 != null}" class="glass-card table-card">
+        <h2>Student Details</h2>
+        <div class="table-wrapper">
+            <table class="student-table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>RollNo</th>
+                        <th>Email</th>
+                        <th>Degree</th>
+                        <th>Specialization</th>
+                        <th>Password</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="s : ${student1}">
+                        <td th:text="${s.id}"></td>
+                        <td th:text="${s.name}"></td>
+                        <td th:text="${s.rollNo}"></td>
+                        <td th:text="${s.email}"></td>
+                        <td th:text="${s.standard}"></td>
+                        <td th:text="${s.section}"></td>
+                        <td th:text="${s.password}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- UPDATE FORM -->
+    <div th:if="${student1 != null}" class="glass-card">
+        <h2>Request Update</h2>
+        <form th:action="@{/admin/updatestd}" th:object="${student1}" method="post" class="update-form">
+            <input type="hidden" th:field="*{id}">
+
+            <div class="form-grid">
+                <div class="input-group">
+                    <label>Name</label>
+                    <input type="text" th:field="*{name}">
+                </div>
+                <div class="input-group">
+                    <label>Roll No</label>
+                    <input type="number" th:field="*{rollNo}">
+                </div>
+                <div class="input-group">
+                    <label>Degree</label>
+                    <input type="text" th:field="*{standard}">
+                </div>
+                <div class="input-group">
+                    <label>Specialization</label>
+                    <input type="text" th:field="*{section}">
+                </div>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" th:field="*{email}">
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="text" th:field="*{password}">
+                </div>
+            </div>
+
+            <button type="submit" class="btn-red mt-20">Update Data</button>
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>

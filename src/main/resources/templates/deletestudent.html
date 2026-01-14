@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Student</title>
+
+    <!-- CSS CONNECT -->
+    <link rel="stylesheet" th:href="@{/css/delete-student.css}">
+</head>
+
+<body>
+
+<div class="container">
+    <div class="glass-card">
+
+        <h1>Delete Student</h1>
+
+        <p class="msg-success" th:if="${scs != null}" th:text="${scs}"></p>
+        <p class="msg-error" th:if="${err != null}" th:text="${err}"></p>
+
+        <!-- DELETE BY NAME -->
+        <form th:action="@{/deleteByName}" th:object="${studentn}" method="post">
+            <div class="input-group">
+                <label>Delete by Name</label>
+                <input type="text" th:field="*{name}" placeholder="Enter student name" required>
+            </div>
+            <button type="submit" class="btn-red">Delete Student</button>
+        </form>
+
+        <div class="divider">OR</div>
+
+        <!-- DELETE BY ROLL NO -->
+        <form th:action="@{/deletebyrollno}" th:object="${studentr}" method="post">
+            <div class="input-group">
+                <label>Delete by Roll No</label>
+                <input type="number" th:field="*{rollNo}" placeholder="Enter roll number" required>
+            </div>
+            <button type="submit" class="btn-red">Delete Student</button>
+        </form>
+
+        <!-- ADMIN MENU -->
+        <form th:action="@{/menuFrmDeletStd}" method="get">
+            <button type="submit" class="btn-outline">Admin Menubar</button>
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Student | Admin</title>
+    <link rel="stylesheet" th:href="@{/css/addstd.css}">
+</head>
+
+<body>
+
+    <!-- ADMIN MENU BUTTON -->
+    <div class="top-bar">
+        <form th:action="@{/menuFrmAddNewStd}" method="get">
+            <button class="btn-outline-red" type="submit">⬅ Admin Menu</button>
+        </form>
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="container">
+        <div class="glass-card">
+
+            <h1 class="page-title">Add New Student</h1>
+
+            <!-- Messages -->
+            <h3 class="msg-success" th:text="${scs}"></h3>
+            <h3 class="msg-error" th:text="${err}"></h3>
+
+            <!-- STUDENT FORM -->
+            <form th:action="@{/admin/addstudent}" th:object="${student}" method="post">
+
+                <div class="form-grid">
+
+                    <div class="input-group">
+                        <label>Name</label>
+                        <input type="text" th:field="*{name}" placeholder="Enter student name" required>
+                    </div>
+
+					
+					
+					<div class="input-group">
+					    <label>Roll No</label>
+					    <input type="number" id="rollNo" th:field="*{rollNo}" readonly>
+					</div>
+
+					
+					
+                    <div class="input-group">
+                        <label>Degree</label>
+                        <input type="text" th:field="*{standard}" placeholder="Degree / Qualification" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Specialization</label>
+                        <input type="text" th:field="*{section}" placeholder="Branch / Stream" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Email</label>
+                        <input type="email" th:field="*{email}" placeholder="Student email" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" th:field="*{password}" placeholder="Create password" required>
+                    </div>
+
+                </div>
+
+                <button class="btn-red mt-20" type="submit">➕ Add Student</button>
+
+            </form>
+
+        </div>
+    </div>
+	
+	<script>
+	    document.addEventListener("DOMContentLoaded", function () {
+	        // Random number between 1 and 99
+	        let randomRoll = Math.floor(Math.random() * 99) + 1;
+	        document.getElementById("rollNo").value = randomRoll;
+	    });
+	</script>
+
+
+</body>
+</html>
